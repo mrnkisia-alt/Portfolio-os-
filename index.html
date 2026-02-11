@@ -1,0 +1,134 @@
+DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio OS</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: monospace;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      min-height: 100vh;
+    }
+    header {
+      background: #0b74c7;
+      padding: 12px 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .desktop {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 600px;
+    }
+    .icon {
+      background: rgba(255,255,255,0.08);
+      border-radius: 10px;
+      padding: 20px 10px;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .icon:hover {
+      background: rgba(255,255,255,0.18);
+      transform: translateY(-3px);
+    }
+    .icon span {
+      display: block;
+      margin-top: 10px;
+    }
+    .window {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .window-content {
+      background: #111;
+      border-radius: 10px;
+      max-width: 600px;
+      width: 100%;
+      padding: 20px;
+    }
+    .window-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    button {
+      background: #0b74c7;
+      border: none;
+      color: white;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    pre {
+      white-space: pre-wrap;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <header>Portfolio OS</header>  <div class="desktop">
+    <div class="icon" onclick="openWin('about')">📄<span>About Me.txt</span></div>
+    <div class="icon" onclick="openWin('projects')">📁<span>Projects/</span></div>
+    <div class="icon" onclick="openWin('skills')">⚙️<span>Skills/</span></div>
+    <div class="icon" onclick="openWin('experience')">📊<span>Experience/</span></div>
+    <div class="icon" onclick="openWin('contact')">💌<span>Contact.exe</span></div>
+  </div>  <div class="window" id="window">
+    <div class="window-content">
+      <div class="window-header">
+        <span id="win-title"></span>
+        <button onclick="closeWin()">X</button>
+      </div>
+      <pre id="win-body"></pre>
+    </div>
+  </div>  <script>
+    const content = {
+      about: {
+        title: 'About Me.txt',
+        body: `Hello, I’m Collins Kisia.
+
+I’m a tech-oriented individual with a strong interest in computers,
+software systems, and modern technology. I enjoy learning how systems
+work, building practical projects, and improving my skills step by step.
+
+Location: Kenya
+Interests: Software, systems, web development, and tech innovation`
+      },
+      projects: {
+        title: 'Projects/',
+        body: • Portfolio OS\n  A portfolio website designed like an operating system.\n\n• Practice Projects\n  Small projects for learning and experimentation.
+      },
+      skills: {
+        title: 'Skills/',
+        body: HTML & CSS\nJavaScript (Basics)\nGit & GitHub\nLinux & Windows OS basics\nNetworking fundamentals\nProblem solving
+      },
+      experience: {
+        title: 'Experience/',
+        body: Student / Self-Taught Tech Enthusiast\n\n• Personal projects\n• Continuous learning\n• Exploring operating systems
+      },
+      contact: {
+        title: 'Contact.exe',
+        body: Email: collinskisia3@gmail.com\nGitHub: https://github.com/mrnkisia-alt\nTwitter (X): https://x.com/Colynce4
+      }
+    };
+
+    function openWin(key) {
+      document.getElementById('win-title').innerText = content[key].title;
+      document.getElementById('win-body').innerText = content[key].body;
+      document.getElementById('window').style.display = 'flex';
+    }
+    function closeWin() {
+      document.getElementById('window').style.display = 'none';
+    }
+  </script></body>
+</html>
